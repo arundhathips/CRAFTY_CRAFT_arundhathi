@@ -1,0 +1,45 @@
+{% include 'craftman_header.html' %}
+<div class="carousel">
+            <div class="container-fluid">
+                <!-- <div class="owl-carousel"> -->
+                    <div class="carousel-item">
+                        <div class="carousel-img">
+                            <img src="/static/img/f13.jpg" alt="Image">
+                        </div>
+                        <div class="carousel-text">
+                            <h1> <span>Payment</span> </h1>
+
+<style type="text/css">
+		table, th, td {
+  border: 3px solid black;
+}
+    th, td {
+  padding: 15px;
+}
+	</style>
+
+	<table border="1" align="center" colspan="2" width="100px" height="50px" style="color: pink">
+<!-- <h1>Bookings</h1>
+ -->		<tr>
+			<th>slno</th>
+			<th>Amount</th>
+			<th>Payment Date</th>
+		</tr>
+		{% for row in data['payment'] %}
+		<tr>
+			<td>{{ loop.index }}</td>
+			<td>{{row['amount']}}</td>
+			<td>{{row['payment_date']}}</td>
+		</tr>
+		{% endfor %}
+
+
+	</table>
+</div>
+</div>
+</div>
+</div>
+
+
+
+{% include 'footer.html' %}

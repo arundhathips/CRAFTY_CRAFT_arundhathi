@@ -1,0 +1,39 @@
+{% include 'admin_header.html' %}
+		</form>
+		<center>	<h1>craft</h1></center>
+			<style type="text/css">
+		table, th, td {
+  border: 3px solid black;
+}
+    th, td {
+  padding: 15px;
+}
+	</style>
+
+	<table border="1" align="center" colspan="2" width="100px" height="50px" style="color: purple">
+		<tr>
+			<th>Name</th>
+			<th>work name</th>
+			<th>work description</th>
+			<th>image</th>
+			<th>work date</th>
+			<th>price</th>
+			<!-- <th>work status</th> -->
+
+		</tr>
+		{% for row in data['craft'] %}
+		<tr>
+			<td>{{row['first_name']+" "+row['last_name']}}</td>
+			<td>{{row['work_name']}}</td>
+			<td>{{row['work_description']}}</td>
+			<td><a href="/{{row['image_path']}}" ><img src="/{{row['image_path']}}" height="100" weight="100"></td>
+			<td>{{row['work_date']}}</td>
+			<td>{{row['price']}}</td>
+			<td><a href="?action=delete&id={{row['craft_id']}}" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
+			<!-- <a href="?action=update&id={{row['craft_id']}}">update</a> --></td>
+			<!-- <td>{{row['work_status']}}</td>	 -->	
+		</tr>
+		{% endfor %}
+	</table>
+
+{% include 'footer.html' %}

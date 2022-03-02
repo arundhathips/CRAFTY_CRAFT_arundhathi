@@ -1,0 +1,138 @@
+{% include 'public_header.html' %}
+ <div class="carousel">
+            <div class="container-fluid">
+                <!-- <div class="owl-carousel"> -->
+                    <div class="carousel-item">
+                        <div class="carousel-img">
+                            <img src="/static/img/f17.jpg" alt="Image">
+                        </div>
+<script src="
+https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    </script>
+<script>
+    $(function() {
+        $("input[name='fname']").on('input', function(e) {
+            $(this).val($(this).val().replace(/[^A-Za-z ]/g, ''));
+
+        });
+         {
+        $("input[name='lname']").on('input', function(e) {
+            $(this).val($(this).val().replace(/[^A-Za-z ]/g, ''));
+
+        });
+        // $("input[name='place']").on('input', function(e) {
+        //     $(this).val($(this).val().replace(/[^A-Za-z ]/g, ''));
+
+        // });
+        // $("input[name='landmark']").on('input', function(e) {
+        //     $(this).val($(this).val().replace(/[^A-Za-z ]/g, ''));
+
+        // });
+        // $("input[name='dob']").on('input', function(e) {
+        //     $(this).val($(this).val().replace(/[^0-9/]/g, ''));
+
+        // });
+       
+        $("input[name='phone']").on('input', function(e) {
+        $(this).val($(this).val().replace(/[^0-9]/g, ''));
+           
+        });
+
+        // $("input[name='pincode']").on('input', function(e) {
+        // $(this).val($(this).val().replace(/[^0-9]/g, ''));
+           
+        });
+        $("input[name='email']").on('input', function(e) {
+              var re = /([A-Z0-9a-z_-][^@])+?@[^$#<>?]+?\.[\w]{1,}/.test(this.value);
+                if(!re) {
+                    $('#eerror').show();
+                } else {
+                    $('#eerror').hide();
+                }
+
+        });
+        $("input[name='username']").on('input', function(e) {
+            $(this).val($(this).val().replace(/[^A-Za-z0-9()/. ]/g, ''));
+
+        });
+        // $("input[name='place']").on('input', function(e) {
+        //     $(this).val($(this).val().replace(/[^A-Za-z ]/g, ''));
+
+        // });
+           
+        $("input[name='password']").on('input', function(e) {
+        $(this).val($(this).val().replace(/[^0-9A-Za-z@/. ]/g, ''));
+           
+        });
+ 
+</script>
+
+
+
+ <!-- <div class="carousel">
+            <div class="container-fluid">
+                <div class="owl-carousel">
+                    <div class="carousel-item">
+                        <div class="carousel-img">
+                            <img src="/static/img/carousel-1.jpg" alt="Image">
+                        </div>
+ -->                        <div class="carousel-text">
+                            <h1> <span>Craftman Registration</span> </h1>
+                            <form method="post">
+			<!-- <h1><u> LOGIN</u></h1> -->
+<!-- <form method="post"> -->
+			<!-- <h1><u> Craftman Registration</u></h1> -->
+			  <table>
+				
+
+				<tr>
+					<th>First Name</th>
+					<td><input type="text"  name="fname" required class="form-control"></td>
+				</tr>
+				
+
+				<tr>
+					<th>Last Name</th>
+					<td><input type="text" name="lname" required class="form-control"></td>
+				</tr>
+				
+
+				<tr>
+					<th>phone</th>
+					<td><input type="number" name="phone" required class="form-control"></td>
+				</tr>
+				
+
+				<tr>
+					<th>Email</th>
+					<td><input type="email" name="email" required class="form-control"></td>
+				</tr>
+
+				<tr>
+					<th>username</th>
+					<td><input type="text" name="username" required class="form-control"></td>
+				</tr>
+
+				<tr>
+					<th>password</th>
+					<td><input type="password" name="password" required class="form-control"></td>
+				</tr>
+				<tr>
+					<th>confirn password</th>
+					<td><input type="password" name="cpassword" required class="form-control"></td>
+				</tr>
+
+				<tr> <td align="center" colspan="2"><input type="submit" name="submit" value="register" class="btn btn-primary">
+
+				</td></tr>
+			</table>
+		</form>
+		  </div>
+                 <!--    </div> -->
+                   
+                </div>
+            </div>
+        </div>
+        <!-- Carousel End -->
+
+{% include 'footer.html' %}	
