@@ -1,0 +1,88 @@
+{% include 'craftman_header.html' %}
+<div class="carousel">
+            <div class="container-fluid">
+                <!-- <div class="owl-carousel"> -->
+                    <div class="carousel-item">
+                        <div class="carousel-img">
+                            <img src="/static/img/ad3.jpg" alt="Image">
+                        </div>
+                        <div class="carousel-text">
+                            <h1> <span>Add craft to auction</span> </h1>
+<!-- <center> -->
+<form method="post" enctype="multipart/form-data">
+<!-- 			<h1><u> </u></h1>
+ -->			  <table class="table" style="width: 500px;color: white">
+	
+				
+                <tr>
+					<th>craft</th>
+					<td><input type="file" required="" class="form-control" name="imagepath" ></td>
+				</tr>
+
+
+				<tr>
+					<th>Details</th>
+					<td><input type="text" required="" class="form-control"  name="details" ></td>
+				</tr>
+				
+
+				<tr>
+					<th>Base amount</th>
+					<td><input type="text" required="" class="form-control" name="baseamount"></td>
+				</tr>
+				
+				<!-- <tr>
+					<th>auction date time</th>
+					<td><input type="datetime-local" required="" class="form-control" name="datetime" ></td>
+				</tr> -->
+
+			
+
+				<tr> <td align="center" colspan="2"><input class="btn btn-success" type="submit" name="submit" value="submit">
+
+				</td></tr>
+			</table>
+
+
+			</div>
+</div>
+</div>
+</div>
+			<h1>view auction</h1>
+			<table border="1" align="center" colspan="2" width="100px" height="50px">
+				<tr>
+					<th>craft</th>
+					<th>details</th>
+					<th>base amount</th>
+					<th>Added datet</th>
+<!-- 					<th>Auction date time</th>
+ -->					<th>status</th>
+				</tr>
+				{% for row in data['view_added_auction_craft'] %}
+		<tr>
+			<td><img src="/{{row['craft']}}" height="100" weight="100"></td>
+			<td>{{ row['details']}}</td>
+			<td>{{ row['base_amount']}}</td>
+			<td>{{ row['added_date']}}</td>
+			{% if row['status']=="Paid" %}
+			<td><a href="?action=dispatch&id={{row['auction_id']}}">dispatch</td>
+				{% else %}
+			<td>{{ row['status']}}</td>
+			{% endif %}
+			<td><a href="craftman_view_bids?id={{row['auction_id']}}">View Bids</a></td>
+			<td><a href="craftman_view_won_customer?id={{row['auction_id']}}">View won customer</a></td>
+		</tr>
+			{% endfor %}
+
+			</table>
+
+		</form>
+		</center>
+
+
+	
+</form>
+
+
+
+{% include 'footer.html' %}

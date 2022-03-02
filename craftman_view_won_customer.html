@@ -1,0 +1,45 @@
+{% include 'craftman_header.html' %}
+
+		 <div class="carousel">
+            <div class="container-fluid">
+                <!-- <div class="owl-carousel"> -->
+                    <div class="carousel-item">
+                        <div class="carousel-img">
+                            <img src="/static/img/f10.jpg" alt="Image">
+                        </div>
+                        <div class="carousel-text">
+	                        <h1><span>Won Customer</span></h1>
+		<style type="text/css">
+		table, th, td {
+  border: 3px solid black;
+}
+    th, td {
+  padding: 15px;
+}
+	</style>
+	<table border="1" align="center" colspan="2" width="100px" height="50px" style="color: skyblue">
+<!-- 		<h1>Won Customer</h1>
+ -->		<tr>
+			<th>Customer Name</th>
+			<th>craft</th>
+			<th>phone</th>
+			<th>email</th>
+			
+		</tr>
+		{% for row in data['won_customer'] %}
+		<tr>
+			<td>{{row['first_name']+" "+row['last_name']}}</td>
+			<td><img src="/{{row['craft']}}" height="100" weight="100"></td>
+			<td>{{row['phone']}}</td>
+			<td>{{row['email']}}</td>
+
+		
+		</tr>
+		{% endfor %}
+	</table>
+</div>
+</div>
+</div>
+</div>
+
+{% include 'footer.html' %}

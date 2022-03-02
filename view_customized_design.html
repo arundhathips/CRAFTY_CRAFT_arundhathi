@@ -1,0 +1,64 @@
+{% include 'craftman_header.html' %}
+<div class="carousel">
+            <div class="container-fluid">
+                <!-- <div class="owl-carousel"> -->
+                    <div class="carousel-item">
+                        <div class="carousel-img">
+                            <img src="/static/img/f13.jpg" alt="Image">
+                        </div>
+                        <div class="carousel-text">
+                            <h1> <span>customized works</span> </h1>
+
+<style type="text/css">
+		table, th, td {
+  border: 3px solid black;
+}
+    th, td {
+  padding: 15px;
+}
+	</style>
+
+	<table border="1" align="center" colspan="2" width="100px" height="50px" style="color: pink">		<tr>
+			<th>Customer name</th>
+			<th>phone</th>
+			<th>email</th>
+			<th>design</th>
+			<th>description</th>
+			<th>date</th>
+			<th>sample image</th>
+
+<!-- 			<th>status</th>
+ -->		</tr>
+		{% for row in data['cust'] %}
+		<tr>
+			<td>{{row['first_name']+" "+row['last_name']}}</td>
+			<td>{{row['phone']}}</td>
+			<td>{{row['email']}}</td>
+			<td>{{row['design']}}</td>
+			<td>{{row['description']}}</td>
+			<td>{{row['date']}}</td>
+			<td><a href="/{{row['image_path']}}" ><img src="/{{row['image']}}" height="100" weight="100"></td>
+			{% if row['status']=="pending"%}
+			<td><a href="?action=accept&cd_id={{row['cdesign_id']}}" onclick="return confirm('Are you sure  want to accept this order?');">accept</a>
+			    <a href="?action=reject&cd_id={{row['cdesign_id']}}" onclick="return confirm('Are you sure you want to reject this work?');">reject</a></td>
+
+			{% elif row['status']=="accepted" %}
+			<td><a href="craftman_add_amount?cd_id={{row['cdesign_id']}}">Add Amount</a></td>
+
+			{% elif row['status']=="paid" %}
+			<td><a href="craftman_view_custpayments?cd_id={{row['cdesign_id']}}">view payment</a></td>
+			<td><a href="?action=dispatch&cd_id={{row['cdesign_id']}}" onclick="return confirm('Are you sure you want to dispatch this item?');">Dispatch</a></td>
+			{% else %}
+			<td>{{row['status']}}</td>
+			{%endif%}
+
+		</tr>
+		{% endfor %}
+	</table>
+
+</div>
+</div>
+</div>
+</div>
+
+{% include 'footer.html' %}

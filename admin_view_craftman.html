@@ -1,0 +1,58 @@
+{% include 'admin_header.html' %}
+
+<div class="carousel">
+            <div class="container-fluid">
+                <!-- <div class="owl-carousel"> -->
+                    <div class="carousel-item">
+                        <div class="carousel-img">
+                            <img src="/static/img/b6.jpg" alt="Image">
+                        </div>
+                        <div class="carousel-text">
+                            <h1> <span>Craftman</span> </h1>
+
+	<!-- <center><h1>craftman</h1></center> -->
+	<style type="text/css">
+		table, th, td {
+  border: 3px solid black;
+}
+    th, td {
+  padding: 15px;
+}
+	</style>
+	<table border="5" align="center" colspan="2" width="500px" height="50px" style="color:yellow">
+		<tr>
+			<th>first name</th>
+			<th>last name</th>
+			<th>phone</th>
+			<th>email</th>
+			<th>verify</th>
+		</tr>
+		{% for row in data['craftman'] %}
+		<tr>
+			<td>{{ row['first_name']}}</td>
+			<td>{{ row['last_name']}}</td>
+			<td>{{ row['phone']}}</td>
+			<td>{{ row['email']}}</td>
+			<td>{{row['user_type']}}</td>
+			{% if row['user_type']=="pending" %}
+			<td><a href="?action=accept&id={{row['login_id']}}">accept</a>
+			<a href="?action=reject&id={{row['login_id']}}">reject</a></td>
+			{% endif %}
+			{% if row['user_type']=="rejected" %}
+			<td><a href="?action=accept&id={{row['login_id']}}">accept</a>
+			</td>
+						{% endif %}
+
+			{% if row['user_type']=="craftman" %}
+			<td><a href="?action=reject&id={{row['login_id']}}">reject</a>
+			</td>
+			{% endif %}
+		</tr>
+		{% endfor %}
+	</table>
+</div>
+</div>
+</div>
+</div>
+
+{% include 'footer.html' %}

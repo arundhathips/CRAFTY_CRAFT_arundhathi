@@ -1,0 +1,39 @@
+<!-- {% include 'craftman_header.html' %}
+<br>
+<br><br><br>
+<center><h1>Auction Details</h1></center>
+		<style type="text/css">
+		table, th, td {
+  border: 3px solid black;
+}
+    th, td {
+  padding: 15px;
+}
+	</style>
+	<table border="1" align="center" colspan="2" width="100px" height="50px" style="color: purple">
+				<tr>
+					<th>craft</th>
+					<th>details</th>
+					<th>base amount</th>
+					<th>Added datet</th>
+<!-- 					<th>Auction date time</th>
+ -->					<th>status</th>
+				</tr>
+				{% for row in data['view_added_auction_craft'] %}
+		<tr>
+			<td><img src="/{{row['craft']}}" height="100" weight="100"></td>
+			<td>{{ row['details']}}</td>
+			<td>{{ row['base_amount']}}</td>
+			<td>{{ row['added_date']}}</td>
+<!-- 			<td>{{ row['auction_date_time']}}</td>
+ -->			<td>{{ row['status']}}</td>
+			<td><a href="craftman_view_bids?id={{row['auction_id']}}">View Bids</a></td>
+			<td><a href="craftman_view_won_customer?id={{row['auction_id']}}">View won customer</a></td>
+		</tr>
+			{% endfor %}
+
+			</table>
+
+		</form>
+		</center>
+{% include 'footer.html' %} -->

@@ -1,0 +1,48 @@
+{% include 'craftman_header.html' %}
+<center>
+	 <div class="carousel">
+            <div class="container-fluid">
+                <!-- <div class="owl-carousel"> -->
+                    <div class="carousel-item">
+                        <div class="carousel-img">
+                            <img src="/static/img/f10.jpg" alt="Image">
+                        </div>
+                        <div class="carousel-text">
+	                        <h1><span>Bids</span></h1>
+		<style type="text/css">
+		table, th, td {
+  border: 3px solid black;
+}
+    th, td {
+  padding: 15px;
+}
+	</style>
+	<table border="1" align="center" colspan="2" width="100px" height="50px" style="color: skyblue">		<tr>
+			<th>craft</th>
+			<th>details</th>
+			<th>base amount</th>
+			<th>Added date</th>
+<!-- 			<th>Auction date time</th>
+ -->			<th>amount</th>
+			
+		</tr>
+		{% for row in data['vbid'] %}
+		<tr>
+			<td><img src="/{{row['craft']}}" height="100" weight="100"></td>
+			<td>{{row['details']}}</td>
+			<td>{{row['base_amount']}}</td>
+			<td>{{row['added_date']}}</td>
+<!-- 			<td>{{row['auction_date_time']}}</td>
+ -->			<td>{{row['amount']}}</td>
+			<!-- <td>{{row['age']}}</td> -->
+			<!-- <td>{{row['status']}}</td> -->
+			
+
+
+		
+		</tr>
+		{% endfor %}
+	</table>
+	</center>
+
+{% include 'footer.html' %}
